@@ -1,0 +1,366 @@
+{
+    "intents": [
+        {
+            "context": "",
+            "patterns": [
+                "Kamusta",
+                "Magandang umaga",
+                "Hey",
+                "Magandang gabi",
+                "Magandang hapon",
+                "Hello",
+                "Kailangan ko ng tulong, matutulungan mo ba ako?",
+                "Kailangan ko ng tulong"
+            ],
+            "responses": [
+                "Ako si NISUBOT, isang chatbot para sa mga procedural at directional na suporta."
+            ],
+            "secondary_responses": [
+                "Paano kita matutulungan ngayon?",
+                "Ano ang maitutulong ko sa iyo?"
+            ],
+            "suggestions": [
+                "Procedural",
+                "Directional"
+            ],
+            "tag": "greeting"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Nasaan ang Main Campus?",
+                "Lokasyon ng Main Campus"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa ng Main Campus?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                "lokasyon"
+            ],
+            "tag": "Main Campus"
+        },
+        {
+            "context": "Directional",
+            "patterns": [
+                "Kailangan ko ng tulong para sa mga Direksyon",
+                "Maaari mo ba akong gabayan sa mga direksyon",
+                "Maaari mo ba akong bigyan ng direksyon",
+                "Naliligaw ako, hindi ko alam kung saan pupunta",
+                "Hindi ko makita",
+                "Nasaan ang",
+                "Maaari mo ba akong tulungan sa mga direksyon?"
+            ],
+            "responses": [
+                "Saan ka ba pupunta?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                "West Campus",
+                "Main Campus",
+                "Registrar",
+                "Cashier",
+                "Library",
+                "Canteen",
+                "CICS Department",
+                "Admin Building",
+                "College of Engineering"
+            ],
+            "tag": "Directional"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Nasaan ang Main Campus?",
+                "Lokasyon ng Main Campus"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa ng Main Campus?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                "lokasyon"
+            ],
+            "tag": "Main Campus"
+        },
+        {
+            "context": "location",
+            "patterns": [
+                "Nasaan ang admin building?",
+                "Lokasyon ng Admin Building"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa ng Admin Building?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Admin Building"
+        },
+        {
+            "context": "location",
+            "patterns": [
+                "Nasaan ang West Campus?"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa ng West Campus?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "West Campus"
+        },
+        {
+            "context": "location",
+            "patterns": [
+                "Nasaan ang registrar?"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa ng registrar?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Registrar"
+        },
+        {
+            "context": "location",
+            "patterns": [
+                "Nasaan ang cashier?"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa ng cashier?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Cashier"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Nasaan ang library?"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa ng library?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Library"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Nasaan ang canteen?"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa ng canteen?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Canteen"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Procedural Support"
+            ],
+            "responses": [
+                "Anong procedure ang kailangan mong tulong?"
+            ],
+            "secondary_responses": [
+                "Puwede mo bang maging mas tiyak?"
+            ],
+            "suggestions": [
+                "About Registrar",
+                "About Cashier",
+                "About Incomplete",
+                "About Library"
+            ],
+            "tag": "Procedural"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Ano ang Registrar",
+                "Ano ang mga responsibilidad ng Registrar"
+            ],
+            "responses": [
+                "Ang Registrar ay nagpoproseso ng mga aplikasyon sa pagpaparehistro, nagsischedule ng mga klase, at nagpapanatili ng listahan ng mga klase."
+            ],
+            "secondary_responses": [
+                "Pinapatupad ang mga patakaran para sa pagpasok o paglabas ng mga klase at nagpapanatili ng permanenteng rekord ng mga marka."
+            ],
+            "suggestions": [
+                "Opening Registrar"
+            ],
+            "tag": "About Registrar"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "ngayon",
+                "oras ng pag-bukas ng registrar",
+                "kailan bukas ang registrar",
+                "oras ng pag-bukas ng registrar"
+            ],
+            "responses": [
+                "Ang Registrar ay bukas tuwing weekdays mula 8:00 am hanggang 11:00 am, at 1:00 pm hanggang 5:00 pm."
+            ],
+            "secondary_responses": [
+                "Ano ang nais mong itanong?"
+            ],
+            "suggestions": [
+                "About Registrar"
+            ],
+            "tag": "Opening Registrar"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "ano ang gagawin sa INC sa registrar",
+                "procedure para sa inc grades",
+                "paano ko makukuha ang completion form",
+                "nasaan ang completion form"
+            ],
+            "responses": [
+                "Makukuha mo ang completion form sa pamamagitan ng pagbabayad sa cashier. Pagkatapos magbayad, pumunta sa registrar at ipasa ang iyong resibo."
+            ],
+            "secondary_responses": [
+                "Huwag mag-atubiling magtanong kung mayroon ka pang mga katanungan."
+            ],
+            "suggestions": [
+                "About Incomplete"
+            ],
+            "tag": "About completion form"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "nasaan ang tor",
+                "paano makuha ang tor",
+                "ano ang tor",
+                "transcript ng mga record"
+            ],
+            "responses": [
+                "Ang TOR o Transcript of Records ay maaaring makuha sa registrar."
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                "About Registrar"
+            ],
+            "tag": "About TOR"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "ano ang cashier",
+                "ano ang ginagawa ng cashier",
+                "ano ang gagawin ko sa cashier?"
+            ],
+            "responses": [
+                "Ang cashier ay responsable sa pagtanggap ng bayad at pagbibigay ng resibo sa bawat transaksyon sa school cafeteria at stationery section."
+            ],
+            "secondary_responses": [
+                "Sila rin ay nagtatala ng lahat ng transaksyon gamit ang cash at card."
+            ],
+            "suggestions": [
+                "Opening Cashier",
+                "About Registrar"
+            ],
+            "tag": "About Cashier"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "ngayon",
+                "oras ng pag-bukas ng cashier",
+                "kailan bukas ang cashier",
+                "oras ng pag-bukas ng cashier"
+            ],
+            "responses": [
+                "Ang cashier ay bukas tuwing weekdays mula 8:00 am hanggang 11:00 am, at 1:00 pm hanggang 5:00 pm."
+            ],
+            "secondary_responses": [
+                "Ano ang nais mong itanong?"
+            ],
+            "suggestions": [
+                "About Cashier"
+            ],
+            "tag": "Opening Cashier"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Nasaan ang lokasyon ng",
+                "nasaan ang lokasyon ng",
+                "nasaan ang"
+            ],
+            "responses": [
+                "Puwede ko bang makuha ang iyong lokasyon para ipakita sa iyo ang mapa?"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "location"
+            
+        },
+        {
+            "tag": "Enrollment",
+            "patterns": [
+                "Paano ako mag-eenroll?",
+                "Paano mag-enroll sa NISU?",
+                "Paano mag-enroll?",
+                "Ano ang proseso ng pag-enroll?",
+                "Ibigay mo sa akin ang mga hakbang para mag-enroll",
+                "Matutulungan mo ba akong mag-enroll?"
+            ],
+            "responses": [
+                "Upang makapag-enroll sa NISU, kailangan mong kumpletuhin ang application form, ipasa ang mga kinakailangang dokumento, at bayaran ang mga kinakailangang bayarin. Ang mga detalye ay nag-iiba depende sa iyong programa at taon ng pag-aaral.",
+                "Ang pag-enroll sa NISU ay nangangailangan ng paghahanda ng iyong mga dokumento, pagsagot sa registration form, at pagkumpleto ng bayad. Para sa detalyadong hakbang, mangyaring bisitahin ang website ng NISU.",
+                "Ang proseso ng pag-enroll sa NISU ay kinabibilangan ng pagsusumite ng application, beripikasyon ng mga dokumento, at kumpirmasyon ng bayad. Sabihin mo lang kung kailangan mo pa ng karagdagang detalye tungkol sa isang partikular na hakbang."
+            ],
+            "secondary_responses": [
+                "Kailangan mo ba ng tulong sa paghahanda ng mga dokumento?",
+                "Huwag mag-atubiling magtanong tungkol sa mga kinakailangan sa admission."
+            ],
+            "context": "Enrollment",
+            "suggestions": [
+                "Proseso ng Aplikasyon",
+                "Pagsusumite ng Dokumento"
+            ]
+        }
+        
+    ]
+}

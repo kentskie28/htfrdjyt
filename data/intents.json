@@ -1,0 +1,1925 @@
+{
+    "intents": [
+        {
+            "tag": "greetings",
+            "patterns": [
+                "Hi",
+                "Goodmorning",
+                "Hey",
+                "Goodevening",
+                "Goodafternoon",
+                "Hello",
+                "I need help can you help me?",
+                "I need assistance"
+            ],
+            "responses": [
+                "I am NISUBOT a chatbot for procedural and directional support. helloo how are you"
+            ],
+            "secondary_responses": [
+                "How can I assist you today?",
+                "What can I help you with?"
+            ],
+            "context": "",
+            "suggestions": [
+                "I have concern about procedure",
+                "Can you help me with directions?"
+            ]
+        },
+        {
+            "tag": "greetings",
+            "patterns": [
+                "what are the rules here",
+                "is there a rules here at nisu?",
+                "what are do's and dont's here at nisu",
+                "is there a banned items here at nisu",
+                "can i smoke here at nisu",
+                "is there a regulation here at nisu",
+                "do i have a rules to follow?",
+                "do i have to follow a rule?"
+            ],
+            "responses": [
+                "There are strict rules that you have to follow as a student here at NISU."
+            ],
+            "secondary_responses": [
+                "Such as, Wearing a proper dress code, No Smoking, No Alcohol and ETC."
+            ],
+            "context": "",
+            "suggestions": [
+                "What is the college dress code?"
+            ]
+        },
+        {
+            "tag": "weather",
+            "patterns": [
+                "What is the weather like today?",
+                "Tell me the weather forecast",
+                "Is it going to rain?",
+                "How's the weather outside?",
+                "Do I need an umbrella today?",
+                "What's the temperature?"
+            ],
+            "responses": [
+                "I’m not sure about the weather, but you could check a weather app or website!"
+            ],
+            "secondary_responses": [
+                "Sorry, I can't provide weather updates.",
+                "I recommend checking a reliable weather source."
+            ],
+            "context": "",
+            "suggestions": [
+            ]
+        },
+        {
+            "tag": "jokes",
+            "patterns": [
+                "Tell me a joke",
+                "Make me laugh",
+                "Do you know any jokes?",
+                "Can you share something funny?",
+                "I need a good laugh",
+                "pakadlawa ko bi",
+                "hambali ko jokes",
+                "can you tell me a joke?",
+                "im sad send me some jokes",
+                "i love joke do you care to tell me one?"
+
+            ],
+            "responses": [
+                "Why did the scarecrow win an award? Because he was outstanding in his field!"
+            ],
+            "secondary_responses": [
+                "What do you call fake spaghetti? An impasta!",
+                "I would tell you a construction joke, but I'm still working on it."
+            ],
+            "context": "",
+            "suggestions": [
+            ]
+        },
+        {
+            "tag": "motivation",
+            "patterns": [
+                "I need some motivation",
+                "Can you inspire me?",
+                "Give me a motivational quote",
+                "I feel down, can you help?",
+                "I need encouragement",
+                "Say something positive",
+                "Boost my morale",
+                "I need a pep talk",
+                "Help me feel better",
+                "Can you lift my spirits?"
+            ],
+            "responses": [
+                "Believe in yourself! Every day is a fresh start. You've got this!"
+            ],
+            "secondary_responses": [
+                "You are capable of amazing things!",
+                "Keep going, your hard work will pay off."
+            ],
+            "context": "",
+            "suggestions": [
+                "Tell me a fun fact",
+                "can you tell me a joke?"
+            ]
+        },
+        {
+            "tag": "fun_facts",
+            "patterns": [
+                "Tell me a fun fact",
+                "Do you know any interesting facts?",
+                "Share a random fact",
+                "Give me a cool fact",
+                "What's something interesting?",
+                "Do you have a fun fact for me?",
+                "Tell me something I don't know",
+                "What’s a surprising fact?",
+                "Give me some trivia",
+                "Do you know a fact I might like?"
+            ],
+            "responses": [
+                "Did you know honey never spoils? Archaeologists have found 3,000-year-old honey in ancient Egyptian tombs that is still edible!"
+            ],
+            "secondary_responses": [
+                "A group of flamingos is called a 'flamboyance'!",
+                "Octopuses have three hearts!"
+            ],
+            "context": "",
+            "suggestions": [
+                "Want to hear another fact?",
+                "I can share more trivia if you're interested."
+            ]
+        },
+
+        {
+            "tag": "name",
+            "patterns": [
+              "name",
+              "your name",
+              "do you have a name",
+              "what are you called",
+              "what is your name",
+              "what should I call you",
+              "whats your name?",
+              "what are you",
+              "who are you",
+              "who is this",
+              "what am i chatting to",
+              "who am i taking to",
+              "what are you"
+            ],
+            "responses": [
+              "I am a Chatbot.",
+              "I am your procedural and directional helper"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "hours",
+            "patterns": [
+              "timing of college",
+              "what is college timing",
+              "working days",
+              "when are you guys open",
+              "what are your hours",
+              "hours of operation",
+              "when is the college open",
+              "college timing",
+              "what about college timing",
+              "is college open on saturday",
+              "tell something about college timing",
+              "what is the college  hours",
+              "when should i come to college",
+              "when should i attend college",
+              "what is my college time",
+              "college timing",
+              "timing college"
+            ],
+            "responses": [
+              "College is open 7:00 am- 5:00pm Monday-Friday!"
+            ],
+            "context_set": ""
+          },
+        {
+            "tag": "Available Courses",
+            "patterns": [
+                "What is the Courses offered here at nisu?",
+                "Offered Courses",
+                "can you recommend me a course?",
+                "What Courses is available",
+                "Ano ang mga courses",
+                "Ano ang courses nga available sa nisu?",
+                "Pwede mabal an kung ano ang courses nga available?",
+                "Where is the list of Courses here at nisu?",
+                "Courses list",
+                "branches of courses",
+                "Choices of Courses",
+                "what are the courses in nisu",
+                "what are the courses",
+                "what is the best course"
+            ],
+            "responses": [
+                "There are lots of Courses Offered here at NISU. Please choose a department to know what courses they offered."
+            ],
+            
+            "secondary_responses": [
+                "CICS(College of Information and Computing Studies), CIT(College of Industrial Technology),CAS(College of Art and Science),CHM(College of Hospitality Management),COEng(College of Engineering),COM(College of Management),COEd(College of Education)"
+            ],
+            "context": "",
+            "suggestions": [
+                "CICS",
+                "CIT",
+                "CHM",
+                "COEng",
+                "COM",
+                "COEd"
+            ]
+        },
+        {
+            "tag": "fees",
+            "patterns": [
+              "information about fee",
+              "information on fee",
+              "tell me the fee",
+              "college fee",
+              "fee per semester",
+              "what is the fee of each semester",
+              "what is the fees of each year",
+              "what is fee",
+              "what is the fees",
+              "how much is the fees",
+              "fees for first year",
+              "fees",
+              "about the fees",
+              "tell me something about the fees",
+              "What is the fees of hostel",
+              "how much is the fees",
+              "hostel fees",
+              "fees for AC room",
+              "fees for non-AC room",
+              "fees for Ac room for girls",
+              "fees for non-Ac room for girls",
+              "fees for Ac room for boys",
+              "fees for non-Ac room for boys"
+            ],
+            "responses": [
+              "There are no fees or tuition in this school."
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "event",
+            "patterns": [
+              "events organised",
+              "list of events",
+              "list of events organised in college",
+              "list of events conducted in college",
+              "What events are conducted in college",
+              "Are there any event held at college",
+              "Events?",
+              "functions",
+              "what are the events",
+              "tell me about events",
+              "what about events"
+            ],
+            "responses": [
+              "There are lots of Event in this school such as University week, Intramural, Foundation Day and etc."
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "scholarship",
+            "patterns": [
+              "scholarship",
+              "Is scholarship available",
+              "scholarship engineering",
+              "scholarship it",
+              "scholarship ce",
+              "scholarship mechanical",
+              "scholarship civil",
+              "scholarship chemical",
+              "scholarship for AI/ML",
+              "available scholarships",
+              "scholarship for computer engineering",
+              "scholarship for IT engineering",
+              "scholarship for mechanical engineering",
+              "scholarship for civil engineering",
+              "scholarship for chemical engineering",
+              "list of scholarship",
+              "comps scholarship",
+              "IT scholarship",
+              "mechanical scholarship",
+              "civil scholarship",
+              "chemical scholarship",
+              "automobile scholarship",
+              "first year scholarship",
+              "second year scholarship",
+              "third year scholarship",
+              "fourth year scholarship"
+            ],
+            "responses": [
+              "Many government scholarships are supported by our university."
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "uniform",
+            "patterns": [
+              "college dress code",
+              "college dresscode",
+              "What is the dresscode?",
+              "what is the uniform",
+              "what to wear?",
+              "can we wear casuals",
+              "Does college have an uniform",
+              "Is there any uniform",
+              "uniform",
+              "what about uniform",
+              "do we have to wear uniform"
+            ],
+            "responses": [
+              "ENTER YOUR OWN UNIVERSITY UNIFORM"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "random",
+            "patterns": [
+              "I love you",
+              "palangga taka",
+              "lab lab tagid ka",
+              "Will you marry me",
+              "Do you love me"
+
+            ],
+            "responses": [
+              "I am not program for this, please ask appropriate query"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "swear",
+            "patterns": [
+              "fuck",
+              "bitch",
+              "shut up",
+              "hell",
+              "stupid",
+              "idiot",
+              "dumb ass",
+              "asshole",
+              "fucker",
+              "Putangina mo",
+              "Gago",
+              "bulay og",
+              "hinayupak",
+              "haslo",
+              "what the fck",
+              "wtf",
+              "istgr"
+            ],
+            "responses": [
+              "please use appropriate language",
+              "Maintaining decency would be appreciated"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "food",
+            "patterns": [
+                "What should I cook today?",
+                "Can you suggest a recipe?",
+                "What's your favorite food?",
+                "Do you know any quick meals to make?",
+                "I'm hungry, what should I eat?",
+                "Can you recommend a healthy snack?",
+                "What are some good dinner ideas?",
+                "Do you know a good dessert recipe?",
+                "What is a simple breakfast to make?",
+                "I need ideas for lunch"
+            ],
+            "responses": [
+                "How about something easy and delicious? What ingredients do you have on hand?"
+            ],
+            "secondary_responses": [
+                "Cooking can be fun! Do you prefer sweet or savory?",
+                "I can share more meal ideas if you'd like!"
+            ],
+            "context": "",
+            "suggestions": [
+                "Do you like trying new recipes?",
+                "I'd love to help you think of meal options!"
+            ]
+        },
+          {
+            "tag": "vacation",
+            "patterns": [
+              "holidays",
+              "when will semester starts",
+              "when will semester end",
+              "when is the holidays",
+              "list of holidays",
+              "Holiday in these year",
+              "holiday list",
+              "about vacations",
+              "about holidays",
+              "When is vacation",
+              "When is holidays",
+              "how long will be the vacation"
+            ],
+            "responses": [
+              "Academic calender is given to you by your class-soordinators after you join your respective classes"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "sports",
+            "patterns": [
+              "sports and games",
+              "give sports details",
+              "sports infrastructure",
+              "sports facilities",
+              "information about sports",
+              "Sports activities",
+              "please provide sports and games information",
+              "what is the sports and games here",
+              "is there a intramural event?",
+              "Is there a sports game here?"
+            ],
+            "responses": [
+              "Our university encourages all-round development of students and hence provides sports facilities in the campus."
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "fitness",
+            "patterns": [
+                "How can I get in shape?",
+                "Do you have any workout tips?",
+                "What exercises are good for beginners?",
+                "Can you suggest a fitness routine?",
+                "I want to start working out",
+                "What are some fun ways to stay active?",
+                "How do I build muscle?",
+                "Can you help me with a fitness goal?",
+                "What’s a good cardio exercise?",
+                "How do I stay motivated to exercise?"
+            ],
+            "responses": [
+                "Staying active is great! Start with simple exercises like walking, yoga, or bodyweight workouts."
+            ],
+            "secondary_responses": [
+                "Consistency is key to fitness. Take small steps each day!",
+                "Finding an activity you enjoy can make fitness more fun."
+            ],
+            "context": "",
+            "suggestions": [
+                "Are you looking for at-home workouts or gym exercises?",
+                "Do you prefer solo exercises or group activities?"
+            ]
+        },
+        {
+            "tag": "travel_tips",
+            "patterns": [
+                "Do you have any travel tips?",
+                "How do I pack for a trip?",
+                "What should I bring on vacation?",
+                "Can you suggest travel destinations?",
+                "I need advice for traveling abroad",
+                "What’s the best way to plan a trip?",
+                "How do I stay safe while traveling?",
+                "What should I know before flying?",
+                "Can you help me with travel planning?",
+                "I want to travel on a budget"
+            ],
+            "responses": [
+                "When traveling, pack light, stay hydrated, and keep your important documents safe."
+            ],
+            "secondary_responses": [
+                "Research your destination ahead of time!",
+                "Make a checklist to avoid forgetting essentials."
+            ],
+            "context": "",
+            "suggestions": [
+                "Do you prefer adventurous or relaxing trips?",
+                "Are you traveling domestically or internationally?"
+            ]
+        },
+        {
+            "tag": "pet_care",
+            "patterns": [
+                "How do I take care of my pet?",
+                "What should I feed my dog?",
+                "Can you give me pet care tips?",
+                "How often should I bathe my cat?",
+                "What do I need for a new puppy?",
+                "How do I keep my pet healthy?",
+                "What's a good pet grooming routine?",
+                "Can you help me with pet training?",
+                "How do I make my pet comfortable?",
+                "What should I consider before getting a pet?"
+            ],
+            "responses": [
+                "Providing proper nutrition, regular exercise, and love is key to pet care."
+            ],
+            "secondary_responses": [
+                "Pets thrive on routines and positive reinforcement.",
+                "Make sure to take your pet for regular vet checkups."
+            ],
+            "context": "",
+            "suggestions": [
+                "Are you looking for tips for a specific type of pet?",
+                "Do you need advice on pet behavior or health?"
+            ]
+        },
+        {
+            "tag": "meal_ideas",
+            "patterns": [
+                "What should I cook for dinner?",
+                "Can you suggest a meal idea?",
+                "I need a quick recipe",
+                "What’s an easy meal to make?",
+                "Do you know any healthy recipes?",
+                "I’m looking for a vegetarian dish",
+                "What’s a good comfort food?",
+                "Can you help me plan meals for the week?",
+                "I want to try a new recipe",
+                "What’s a good meal for a family dinner?"
+            ],
+            "responses": [
+                "How about trying a simple pasta dish, a fresh salad, or a stir-fry?"
+            ],
+            "secondary_responses": [
+                "Cooking can be fun! Do you prefer quick or elaborate meals?",
+                "I can suggest more recipes if needed."
+            ],
+            "context": "",
+            "suggestions": [
+                "Are you looking for breakfast, lunch, or dinner ideas?",
+                "Do you have any dietary preferences?"
+            ]
+        },
+          {
+            "tag": "task",
+            "patterns": [
+              "what can you do",
+              "what are the thing you can do",
+              "things you can do",
+              "what can u do for me",
+              "how u can help me",
+              "why i should use you"
+            ],
+            "responses": [
+              "I can answer to low-intermediate questions regarding college",
+              "You can ask me questions regarding college, and i will try to answer them"
+            ],
+            "context_set": ""
+          },
+          {
+            "tag": "music",
+            "patterns": [
+              "What's your favorite music genre?",
+              "Tell me a song recommendation",
+              "Who's your favorite artist?",
+              "do you know music?",
+              "what is the best music",
+              "who is the best artist",
+              "who is the best singer",
+              "what are your favorite song",
+              "is there a song you like?",
+              "can you recommend me a song",
+              "will you sing for me",
+              "i have a bad music taste",
+              "can you suggest me a song"
+            ],
+            "responses": [
+              "As an AI, I don't have personal preferences, but I love all kinds of music!",
+              "I don't have a favorite artist, but I can suggest music based on your taste."
+            ]
+          },
+          {
+            "tag": "movies",
+            "patterns": [
+              "What's a good movie to watch?",
+              "Any movie recommendations?",
+              "Tell me your favorite movie",
+              "can you suggest me a movie",
+              "what is the best movie to watch",
+              "can you recommend me a movie to binge watch",
+              "will you give me your favorite movie",
+              "is there a movie you like the most",
+              "movie suggestion",
+              "movie recommendation",
+              "movie lists"
+            ],
+            "responses": [
+              "For action fans, I recommend 'The Dark Knight', 'Avengers', and 'Spiderman'",
+              "My favorite movie is 'Matilda', it's a classic!"
+            ]
+          },
+          {
+            "tag": "motivation",
+            "patterns": [
+              "I feel demotivated.",
+              "How can I stay motivated?",
+              "I need some motivation.",
+              "Feeling low, any motivational words?",
+              "i'm sad please motivate me",
+              "i dont want to study anymore",
+              "takan nako mag tuon",
+              "i will stop studying",
+              "studying sucks",
+              "i hate studying",
+              "can you motivate me?",
+              "my parents are discouraging me"
+
+            ],
+            "responses": [
+              "Remember that every great journey starts with a small step. Keep moving forward!",
+              "Challenges are what make life interesting. Embrace them and stay motivated!",
+              "Believe in yourself, for you are capable of achieving incredible things!",
+              "Your dreams are within reach. Stay focused and motivated to turn them into reality.",
+              "Don't be discouraged by setbacks. They are stepping stones to success. Keep going!"
+            ]
+          },
+          {
+            "tag": "Support Others",
+            "patterns": [
+              "How can I support and encourage others?",
+              "What can I do to uplift someone's spirits?",
+              "Tips for being a supportive friend?",
+              "My friend is having a tough time",
+              "my friend is dealing with problems",
+              "my friend is sad right now",
+              "how to help others",
+              "my friend have problems right now",
+              "can you help me encourage my friend",
+              "can you help my friend overcome their problem"
+
+            ],
+            "responses": [
+              "Be a good listener and offer your empathy and understanding.",
+              "Provide words of encouragement and remind them of their strengths.",
+              "Offer a helping hand and let them know you are there for them.",
+              "Celebrate their successes and support them during challenging times.",
+              "Show kindness and spread positivity to make a difference in someone's life."
+            ],
+            "suggestions":[
+                "How can i stay motivated?",
+                "Dealing with advesity, any advice?"
+            ]
+          },
+          {
+            "tag": "overcoming_adversity",
+            "patterns": [
+              "How do I stay strong during tough times?",
+              "Dealing with adversity, any advice?",
+              "Tips for overcoming challenges?",
+              "can you give me an advise to overcome challenges?",
+              "can you help me overcome my challenges",
+              "i have a problem please help me",
+              "i am stressed right now",
+              "dealing with stress can you help me?",
+              "do you have a advice for facing problems?"
+            ],
+            "responses": [
+              "Remember that challenges are opportunities for growth and resilience.",
+              "Take one step at a time and focus on the solutions rather than the problems.",
+              "Seek support from friends, family, or professionals if needed.",
+              "Maintain a positive outlook and keep reminding yourself of your strengths.",
+              "Believe in your ability to overcome obstacles; you are stronger than you think!"
+            ],
+            "suggestions": [
+                "How can i stay motivated?",
+                "How can i support and encourage others?"
+            ]
+          },
+          {
+            "tag": "shakespeare_poems",
+            "patterns": [
+              "Read me a poem by Shakespeare.",
+              "Share a Shakespearean poem with me.",
+              "Let me hear a poem written by Shakespeare.",
+              "tell me a poem",
+              "poem is my favorite thing",
+              "i love poem",
+              "i love shakespeare",
+              "do you know william shakespear?",
+              "can you give me a poem"
+            ],
+            "responses": [
+              "Certainly! Here's a beautiful poem by William Shakespeare:\n\nOver hill, over dale,\nThorough bush, thorough brier,\nOver park, over pale,\nThorough flood, thorough fire!\nI do wander everywhere,\nSwifter than the moon's sphere;\nAnd I serve the Fairy Queen,\nTo dew her orbs upon the green;\nThe cowslips tall her pensioners be;\nIn their gold coats spots you see;\nThose be rubies, fairy favours;\nIn those freckles live their savours;\nI must go seek some dewdrops here,\nAnd hang a pearl in every cowslip's ear."
+            ]
+          },
+        {
+            "tag": "CICS Courses",
+            "patterns": [
+                "CICS",
+                "Courses of CICS",
+                "Offered Courses of CICS",
+                "what is the available courses of CICS",
+                "Ano ang Courses sa CICS",
+                "i want to become a programmer",
+                "Ano ang gina offer nga courses sa CICS?",
+                "College of Information and Computing Studies"
+            ],
+            "responses": [
+                "CICS offers these courses"
+            ],
+            "secondary_responses": [
+                "Bachelor of Science in Information Technology, Bachelor of Science in Computer Science, Bachelor of Library and Information Science"
+            ],
+            "context": "Courses",
+            "suggestions": [
+                "What is the Courses offered here at NISU?"
+            ]
+        },
+        {
+            "tag": "CIT Courses",
+            "patterns": [
+                "CIT",
+                "Courses of CIT",
+                "Offered Courses of CIT",
+                "what is the available courses of CIT",
+                "Ano ang Courses sa CIT",
+                "Ano ang gina offer nga courses sa CIT?",
+                "College of Industrial Technology"
+
+                
+            ],
+            "responses": [
+                "CIT offers these courses"
+            ],
+            "secondary_responses": [
+                "BSIT major in Electrical Technology, BSIT major in 𝙰𝚞𝚝𝚘𝚖𝚘𝚝𝚒𝚟𝚎 Technology, BSIT major in Drafting Technology"
+            ],
+            "context": "Courses",
+            "suggestions": [
+                "What is the Courses offered here at NISU?"
+            ]
+        },
+        {
+            "tag": "CAS Courses",
+            "patterns": [
+                "CAS",
+                "Courses of CAS",
+                "Offered Courses of CAS",
+                "what is the available courses of CAS",
+                "Ano ang Courses sa CAS",
+                "Ano ang gina offer nga courses sa CAS?",
+                "College of Arts and Science"
+
+                
+            ],
+            "responses": [
+                "CAS offers these courses"
+            ],
+            "secondary_responses": [
+                "Bachelor of Arts in English Language, Bachelor of Arts in 𝙴𝚌𝚘𝚗𝚘𝚖𝚒𝚌𝚜, Bachelor of Science in Biology, Bachelor of Science in Midwifery"
+            ],
+            "context": "Courses",
+            "suggestions": [
+                "What is the Courses offered here at NISU?"
+            ]
+        },
+        {
+            "tag": "CHM Courses",
+            "patterns": [
+                "CHM",
+                "Courses of CHM",
+                "Offered Courses of CHM",
+                "what is the available courses of CHM",
+                "Ano ang Courses sa CHM",
+                "Ano ang gina offer nga courses sa CHM?",
+                "College of Arts and Science"
+
+                
+            ],
+            "responses": [
+                "CHM offers the course"
+            ],
+            "secondary_responses": [
+                "Bachelor of Science in Tourism Management"
+            ],
+            "context": "Courses",
+            "suggestions": [
+                "What is the Courses offered here at NISU?"
+            ]
+        },
+        {
+            "tag": "COEng Courses",
+            "patterns": [
+                "COEng",
+                "Courses of COEng",
+                "Offered Courses of COeng",
+                "what is the available courses of COEng",
+                "Ano ang Courses sa COEng",
+                "Ano ang gina offer nga courses sa COEng?",
+                "College of Engineering",
+                "what are the engineering courses",
+                "ano ang courses ka engineering"
+
+                
+            ],
+            "responses": [
+                "COEng offers these courses"
+            ],
+            "secondary_responses": [
+                "Bachelor of Science in Civil Engineering, Bachelor of Science in Mechanical Engineering"
+            ],
+            "context": "Courses",
+            "suggestions": [
+                "What is the Courses offered here at NISU?"
+            ]
+        },
+        {
+            "tag": "COM Courses",
+            "patterns": [
+                "COM",
+                "Courses of COM",
+                "Offered Courses of COM",
+                "what is the available courses of COM",
+                "Ano ang Courses sa COM",
+                "Ano ang gina offer nga courses sa COM?",
+                "College of Management",
+                "what are the management courses",
+                "ano ang courses ka management"
+
+                
+            ],
+            "responses": [
+                "COM offers these courses"
+            ],
+            "secondary_responses": [
+                "Bachelor of Science in Business Administration, Bachelor of Science in Entrepreneurship, Bachelor of Public Administration"
+            ],
+            "context": "Courses",
+            "suggestions": [
+                "What is the Courses offered here at NISU?"
+            ]
+        },
+        {
+            "tag": "COEd Courses",
+            "patterns": [
+                "COEd",
+                "Courses of COEd",
+                "Offered Courses of COEd",
+                "what is the available courses of COEd",
+                "Ano ang Courses sa COEd",
+                "Ano ang gina offer nga courses sa COEd?",
+                "College of Education",
+                "what are the Education courses",
+                "ano ang courses ka education"
+
+                
+            ],
+            "responses": [
+                "COEd offers these courses"
+            ],
+            "secondary_responses": [
+                "Bachelor of 𝙴𝚕𝚎𝚖𝚎𝚗𝚝𝚊𝚛𝚢 Education, Bachelor of Second Education 𝚖𝚊𝚓𝚘𝚛 in English, Bachelor of Secondary Education 𝚖𝚊𝚓𝚘𝚛 in 𝙼𝚊𝚝𝚑𝚎𝚖𝚊𝚝𝚒𝚌𝚜, Bachelor of Secondary Education 𝚖𝚊𝚓𝚘𝚛 in Filipino, Bachelor of Second Education 𝚖𝚊𝚓𝚘𝚛 in Social Studies, Bachelor of Physical Education"
+            ],
+            "context": "Courses",
+            "suggestions": [
+                "What is the Courses offered here at NISU?"
+            ]
+        },
+        {
+            "tag": "Wifi",
+            "patterns": [
+                "Is there a wifi here?",
+                "Is there a free wifi?",
+                "Wifi at nisu",
+                "wifi at west",
+                "wifi at main campus",
+                "how do i connect from nisu wifi",
+                "may ari di wifi ang nisu",
+                "may wifi di?"
+            ],
+            "responses": [
+                "Yes, NISU Main Campus offers free Wi-Fi in most areas."
+            ],
+            "secondary_responses": [
+                "Either in main campus or west campus"
+            ],
+            "context": "",
+            "suggestions": [
+                "I have concern about procedure",
+                "Can you help me with directions?"
+            ]
+        },
+        {
+            "tag": "Main Campus",
+            "patterns": [
+                "Where is Main Campus Located?",
+                "Location of Main Campus",
+                "where is nisu main located"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "context": "",
+            "suggestions": [
+                "location"
+            ]
+        },
+        {
+            "tag": "Directional",
+            "patterns": [
+                "I need help for Directions",
+                "i cant find",
+                "where is the",
+                "Can you help me with Directions?",
+                "diin ang",
+                "gusto ko mag kadto sa",
+                "diin makita ang"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "context": "Directional",
+            "suggestions": [
+                "West Campus",
+                "Main Campus",
+                "Registrar",
+                "Cashier",
+                "Library",
+                "Canteen",
+                "CICS Department",
+                "Admin Building",
+                "College of Engineering"
+            ]
+        },
+        {
+            "tag": "Admin Building",
+            "patterns": [
+                "Where is admin building?",
+                "Location of Admin Building",
+                "where is admin building located",
+                "diin ang admin building",
+                "how to go to admin building"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "context": "location",
+            "suggestions": [
+            ]
+        },
+        {
+            "context": "location",
+            "patterns": [
+                "Where is West Campus Located?",
+                "Where is West Located?",
+                "how to go to west",
+                "how to go to west campus",
+                "diin ang west campus",
+                "diin makita ang west campus"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+            ],
+            "tag": "West Campus"
+        },
+        {
+            "context": "location",
+            "patterns": [
+                "Where is registrar located?",
+                "Registrar location",
+                "how to go to registrar"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Registrar"
+        },
+        {
+            "context": "location",
+            "patterns": [
+                "Where is cashier Located?",
+                "how to go to cashier",
+                "diin makita ang cashier",
+                "diin ang cashier",
+                "paano ka kadto sa cashier?",
+                "saan banda ang cashier?",
+                "saan ang cashier?",
+                "Where is cashier?"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Cashier"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Where is library Located?",
+                "how to go to library",
+                "diin makita ang library",
+                "diin ang library",
+                "paano ka kadto sa library?",
+                "saan banda ang library?",
+                "saan ang library?",
+                "Where is library?"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Library"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Where is canteen Located?",
+                "how to go to canteen",
+                "diin makita ang canteen",
+                "diin ang canteen",
+                "paano ka kadto sa canteen?",
+                "saan banda ang canteen",
+                "saan ang canteen",
+                "Where is canteen"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "Canteen"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Procedural Support",
+                "can you help me about a certain procedure?",
+                "I have a concern about procedure"
+            ],
+            "responses": [
+                "On what procedural do you need help?"
+            ],
+            "secondary_responses": [
+                "Can you be more specific?"
+            ],
+            "suggestions": [
+                "How can i get a Library Card",
+                "Where do i read books",
+                "I have an INC grades",
+                "How to pay at the cashier"
+            ],
+            "tag": "Procedural"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "What is Registrar",
+                "What are the responsibilities of Registrar",
+                "about registrar",
+                "ano ang registrar",
+                "where do i signed my completion form"
+            ],
+            "responses": [
+                "Registrar processes registration requests schedules classes and maintains class lists."
+            ],
+            "secondary_responses": [
+                "Enforces the rules for entering or leaving classes and keeps a permanent record of grades and marks."
+            ],
+            "suggestions": [
+                "How to get a library card",
+                "About Library",
+                "Opening time of Registrar"
+            ],
+            "tag": "About Registrar"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "What is Library",
+                "What are the responsibilities of Library",
+                "What to do with library",
+                "Where do i get books",
+                "i wwant to read a book",
+                "i want to borrow a book",
+                "Where can i read?",
+                "can i rent for books?",
+                "Where can i rent books",
+                "where can i study quitely?",
+                "is there a place for books?"
+            ],
+            "responses": [
+                "A college library, also known as an academic library, is a space on a college campus that provides resources for students, faculty, and staff to study, research, and learn"
+            ],
+            "secondary_responses": [
+                "You can ask me about Library any time!"
+            ],
+            "suggestions": [
+                "How to get a library card",
+                "Opening time of Library",
+                "What is the purpose of a Library Card"
+            ],
+            "tag": "About Library"
+        },
+        {
+            "context": "Library",
+            "patterns": [
+                "What is a Library Card",
+                "what is the purpose of a library card",
+                "what to do to get library card",
+                "Where to get Library Card",
+                "How to avail Library Card",
+                "how to request library card",
+                "Where do i get Card",
+                "How can i get library Card",
+                "I want to get a Library Card",
+                "is there a way to get a library card?",
+                "paano mag kwa sang library card?",
+                "ano ang ubrahon para maka kwa ka library card"
+            ],
+            "responses": [
+                "A library card for college students provides access to resources, identification, and other privileges,"
+            ],
+            "secondary_responses": [
+                "Bring your 2x2 picture then wait for the process and fill-up the form. Wait for the process to finish then you can get your library card at the library."
+            ],
+            "suggestions": [
+                "Where is library located?"
+            ],
+            "tag": "About Library Card"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "sano ga bukas ang registrar",
+                "sano available ang registrar",
+                "open hour of registrar",
+                "when is registrar available",
+                "open time of registrar",
+                "opening time of registrar"
+            ],
+            "responses": [
+                "Registrar is available every weekdays from 8:00 am to 11:00 am. And 1:00 pm to 5:00 pm"
+            ],
+            "secondary_responses": [
+                "What would you like to ask?"
+            ],
+            "suggestions": [
+                "When does cashier open?",
+                "What is Registrar"
+            ],
+            "tag": "Opening Registrar"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "sano ga bukas ang registrar",
+                "sano available ang registrar",
+                "open hour of registrar",
+                "when is registrar available",
+                "open time of registrar",
+                "opening time of registrar"
+            ],
+            "responses": [
+                "Office Hours 8:00AM - 12:00NOON \n 1:00PM - 5:00PM MONDAY - FRIDAY \n NO OFFICE DURING WEEKENDS & HOLIDAYS"
+            ],
+            "secondary_responses": [
+                "What would you like to ask?"
+            ],
+            "suggestions": [
+            ],
+            "tag": "Opening OJT/DRRMO"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "what to do in INC registrar",
+                "ano ubrahon sa INC nga grades",
+                "procedure for inc grades",
+                "how do i get completion form",
+                "where is the completion form",
+                "what is a completion form",
+                "How to get a completion form",
+                "what to do with the completion form"
+            ],
+            "responses": [
+                "You can get the completion form by paying at the cashier. After paying at the cashier go to the registrar and give your receipt."
+            ],
+            "secondary_responses": [
+                "Feel free to ask me if you still have questions"
+            ],
+            "suggestions": [
+                "I have an INC grades",
+                "What to do with INC Grades"
+            ],
+            "tag": "About Completion Form"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "where to get tor",
+                "tor how to get",
+                "what is tor",
+                "transcript of records",
+                "how to get Tor",
+                "I want to apply for tor",
+                "what to do with TOR",
+                "how to request"
+            ],
+            "responses": [
+                "TOR or Transcript of records can be claimed on registrar."
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                "What is Registrar",
+                "When does registrar open"
+            ],
+            "tag": "About TOR"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "what is cashier",
+                "what does cashier do",
+                "what will i do in cashier?",
+                "ano ang naubra ka cashier",
+                "diin mabayad?",
+                "where to pay tuition?",
+                "where to pay balance?"
+            ],
+            "responses": [
+                "Cashiers are responsible for taking payments and providing or issuing a receipt for every transaction that happens in the school cafeteria and stationery section."
+            ],
+            "secondary_responses": [
+                "They also keep track of all cash and card transactions."
+            ],
+            "suggestions": [
+                "Opening hour of cashier"
+            ],
+            "tag": "About Cashier"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "today",
+                "opening hour of cashier",
+                "when is cashier available",
+                "open time of cashier",
+                "sano ga bukas ang cashier?",
+                "sano available ang cashier?"
+            ],
+            "responses": [
+                "cashier is available every weekdays from 8:00 am to 11:00 am. And 1:00 pm to 5:00 pm"
+            ],
+            "secondary_responses": [
+                "What would you like to ask?"
+            ],
+            "suggestions": [
+                "Where to pay balance",
+                "Where is Cashier located"
+            ],
+            "tag": "Opening Cashier"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Where is the location of",
+                "where is located",
+                "where is",
+                "paano ka kadto sa",
+                "gusto ko mag kadto sa",
+                "ano ang alagyan pakadto ang",
+                "diin ang",
+                "what is the location of",
+                "diin makita ang?"
+            ],
+            "responses": [
+                "It seems that you are asking for location, please click the map button to redirect you to your destination"
+            ],
+            "secondary_responses": [
+                ""
+            ],
+            "suggestions": [
+                ""
+            ],
+            "tag": "location"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Can you tell me about the grading system?",
+                "How do grades work?",
+                "Explain the grades",
+                "grading system of nisu",
+                "What is the grading system?",
+                "ano ang grading system",
+                "paano ga work ang grading system"
+            ],
+            "responses": [
+                "Our grading system uses the 5-Point Scale wherein the highest grade is a 1.00 and the lowest is a 5.00 The lowest passing mark is actually a 3.00. Although usually not depicted",
+                "A grade of 5.00 is equivalent to a grade of incomplete."
+            ],
+            "secondary_responses": [
+                "If the school does not use the grade point 5.00 it will use INC instead.(failing mark).Do you need more specific information about a particular grade?"
+            ],
+            "suggestions": [
+                "I have a INC grades",
+                "How to complete a INC grades"
+            ],
+            "tag": "Grades"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "What is an INC?",
+                "Explain INC grades",
+                "i have failure grades",
+                "5.0 grades",
+                "I have INC grades",
+                "I got a failing grades",
+                "I got a failed grades",
+                "Incomplete grades",
+                "May INC ko"
+            ],
+            "responses": [
+                "An INC stands for 'Incomplete.' It is given when a student hasn't completed all course requirements."
+            ],
+            "secondary_responses": [
+                "Is there anything you want to ask about INC?"
+            ],
+            "suggestions": [
+                "How to complete a INC grades",
+                "What is the grading system"
+            ],
+            "tag": "About Incomplete"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "How do I complete an INC?",
+                "How do I complete an INC grades?",
+                "What should I do to complete my incomplete grade?",
+                "INC completion process",
+                "Paano ko magka grades kung INC?",
+                "paano mag ka grades kung INC",
+                "paano maka pasa sa INC grades?"
+            ],
+            "responses": [
+                "To complete an INC, you need to submit the remaining coursework by the deadline set by your professor."
+            ],
+            "secondary_responses": [
+                "Feel free to ask more about Incomplete"
+            ],
+            "suggestions": [
+                "What is an INC grades?"
+            ],
+            "tag": "Completing INC"
+        },
+        {
+            "context": "Enrollment",
+            "patterns": [
+                "How can I enroll?",
+                "How do i register for classes?",
+                "how to apply to nisu",
+                "How to enroll to nisu",
+                "How to enroll?",
+                "What is the enrollment process?",
+                "what is the requirements for enrollments",
+                "Tell me the steps for enrollment",
+                "Can you guide me on enrolling"
+            ],
+            "responses": [
+                "To enroll in NISU you need to complete the application form and submit the required documents and pay the necessary fees.  Specific details vary depending on your program and year level.",
+                "Enrollment at NISU involves preparing your documents filling out the registration form and completing payment. For detailed steps please visit the NISU website.",
+                "The NISU enrollment process includes application submission verification of documents and payment confirmation. Let me know if you need more details on a specific step."
+            ],
+            "secondary_responses": [
+                "Feel free to ask about the admission requirements."
+            ],
+            "suggestions": [
+                "Where is Registrar Located?"
+            ],
+            "tag": "Enrollment"
+        },
+        {
+            "context": "",
+            "patterns": [
+                "Thank you",
+                "Thanks ",
+                "TY",
+                "GGGG",
+                "Okay",
+                "Thank you soo much"
+            ],
+            "responses": [
+                "You're Welcome",
+                "You can ask me any time!"
+            ],
+            "secondary_responses": [
+                "If you want to ask something you. I am Available 24/7"
+            ],
+            "suggestions": [
+            ],
+            "tag": "Thank you"
+        },
+        {
+            "tag": "Dean CICS",
+            "patterns": [
+                "Who is the DEAN of CICS",
+                "CICS dean",
+                "who is in charge of cics",
+                "where is sir felicisimo v. Wenceslao Located",
+                "where can i see DEAN of cics",
+                "who is sir felicisimo v. wenceslao",
+                "sino ang dean ka cics?",
+                "what is the name of the dean of cics"
+                
+            ],
+            "responses": [
+                "The Dean of CICS is Dr. Felicisimo V. Wenceslao"
+            ],
+            "secondary_responses": [
+            ],
+            "context": "",
+            "suggestions": [
+            ]
+        },
+        {
+            "tag": "University Director",
+            "patterns": [
+                "Who is the University Director?",
+                "who is the director of the university",
+                "who is LENNIE S. MALURAY, LPT, MAT?",
+                "sino ang university director",
+                "sino ang in charge sa university director"
+            ],
+            "responses": [
+                "The University Director, OGAD, is LENNIE S. MALURAY, LPT, MAT?"
+            ],
+            "secondary_responses": [
+            ],
+            "context": "",
+            "suggestions": ["Who is the President of NISU?"]
+        },
+        {
+            "tag": "Instructor Coordinator",
+            "patterns": [
+                "Who is the instructor coordinator?",
+                "who is the university instructor coordinator",
+                "what is the name of the instructor coordinator?",
+                "who is SHELLY JOY S. JUNGCO, Ph. D?",
+                "sino ang instructor coordinator",
+                "sino ang in charge instructor coordinator"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The University Instructor Coordinator is SHELLY JOY S. JUNGCO, Ph. D"
+            ],
+            "context": "",
+            "suggestions": ["Who is the President of NISU?","Who is the department coordinator"]
+        },
+        {
+            "tag": "Department Coordinator?",
+            "patterns": [
+                "Who is the Department Coordinator",
+                "who is the Department coordinator of the university",
+                "who is AUDREY KARYL P. MALIGANG",
+                "what is the name of the department coordinator",
+                "who is Audrey",
+                "sino ang department coordinator",
+                "sino ang in charge sa department coordinator"
+            ],
+            "responses": [
+                "The Department Coordinator is AUDREY KARYL P. MALIGANG, Ed, D."
+            ],
+            "secondary_responses": [
+            ],
+            "context": "",
+            "suggestions": ["Who is the President of NISU?","Who is the University Director"]
+        },
+        {
+            "tag": "Research Coordinator",
+            "patterns": [
+                "Who is the Research Coordinator?",
+                "who is the university Research Coordinator",
+                "what is the name of the Research Coordinator?",
+                "who is MARK T. DASA, Ed. D?",
+                "sino ang research coordinator",
+                "sino ang in charge research coordinator"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The University Research Coordinator is MARK T. DASA, Ed. D?"
+            ],
+            "context": "",
+            "suggestions": ["Who is the President of NISU?","Who is the department coordinator"]
+        },
+        {
+            "tag": "Extension Coordinator",
+            "patterns": [
+                "Who is the Extension Coordinator?",
+                "who is the university extension Coordinator",
+                "what is the name of the extension Coordinator?",
+                "who is ANNELYN A. TUNG, D. R. Dev.?",
+                "sino ang extension coordinator",
+                "sino ang in charge extension coordinator"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The University Extension Coordinator is ANNELYN A. TUNG, D. R. Dev.?"
+            ],
+            "context": "",
+            "suggestions": ["Who is the President of NISU?","Who is the research coordinator"]
+        },
+        {
+            "tag": "Extension Coordinator",
+            "patterns": [
+                "Who is the Extension Coordinator?",
+                "who is the university extension Coordinator",
+                "what is the name of the extension Coordinator?",
+                "who is ANNELYN A. TUNG, D. R. Dev.?",
+                "sino ang extension coordinator",
+                "sino ang in charge extension coordinator"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The University Extension Coordinator is ANNELYN A. TUNG, D. R. Dev.?"
+            ],
+            "context": "",
+            "suggestions": ["Who is the President of NISU?","Who is the department coordinator"]
+        },
+        {
+            "tag": "President",
+            "patterns": [
+                "Who is the President of NISU",
+                "who is the president",
+                "who is bobby d. gerardo",
+                "who is bobby",
+                "who is in charge of nisu",
+                "sino ang presidente ka nisu?",
+                "sino ang in charge ka nisu?",
+                "what is the name of the president of nisu?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The president of NISU is Dr. Bobby D. Gerardo."
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "KIAK Coordinator",
+            "patterns": [
+                "Who is the KIAK Coordinator",
+                "who is the kiak coordinator of nisu",
+                "who is NOLI B. BALLARA, Ed. D.",
+                "who is NOLI",
+                "who is in charge of KIAK Coordinator",
+                "sino ang KIAK COORDINATOR",
+                "sino ang ngalan ka KIAK COORDINATOR",
+                "sino ang in charge ka KIAK COORDINATOR",
+                "what is the name of the KIAK COORDINATOR?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The KIAK Coordinator is NOLI B. BALLARA, Ed. D."
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "Publication Coordinator",
+            "patterns": [
+                "Who is the Publication coordinator",
+                "who is the publication coordinator of nisu",
+                "who is RYAN FLOYD S. SOROLLA, MA EL",
+                "who is in charge of publication Coordinator",
+                "sino ang publication COORDINATOR",
+                "sino ang ngalan ka publication COORDINATOR",
+                "sino ang in charge ka publication COORDINATOR",
+                "what is the name of the publication COORDINATOR?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The Publication Coordinator is RYAN FLOYD S. SOROLLA, MA EL"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "Vice President, Researh and Extension",
+            "patterns": [
+                "Who is the Vice President, Researh and Extension",
+                "who is the research and extension vice president",
+                "who is LARRY B. DEYSOLONG , D.FISH.TECH",
+                "who is in charge of Research and Extension",
+                "sino ang Research and extension",
+                "sino ang ngalan ka Research and Extension",
+                "sino ang in charge ka Research and Extension",
+                "what is the name of the Vice President, Researh and Extension?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The Vice President, Research and Extension is LARRY B. DEYSOLONG , D.FISH.TECH"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "University Director, Research and Development Services",
+            "patterns": [
+                "Who is the University Director, Research and Development Services?",
+                "who is the University Director of Research and Development Services?",
+                "who is FELIPE P. VISTA IV, Ph.D",
+                "who is in charge of Research and Development Services",
+                "sino ang Research and Development Services",
+                "sino si felipe vista",
+                "sino ang in charge ka Research and Development Services",
+                "what is the name of the University Director?",
+                "what is the name of the Research and Development Services?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "University Director, Research and Development Services is FELIPE P. VISTA IV, Ph.D"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU","Who is the University Director of OGAD"]
+        },
+        {
+            "tag": "University Director, Scientific Publication",
+            "patterns": [
+                "Who is the University Director, Scientific Publication?",
+                "who is the University Director of Scientific Publication?",
+                "who is ALLEMAR JHONE P. DELIMA, DIT",
+                "who is in charge of Scientific Publication",
+                "sino ang Scientific Publication",
+                "sino si allemar",
+                "sino ang in charge ka Scientific Publication",
+                "what is the name of the University Director of Scientific Publication?",
+                "what is the name of the Scientific Publication?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "University Director, Scientific Publication is ALLEMAR JHONE P. DELIMA, DIT"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU","Who is the University Director of OGAD"]
+        },
+        {
+            "tag": "University Director, Extension Services",
+            "patterns": [
+                "Who is the University Director, Extension Services?",
+                "who is the University Director of Extension Services?",
+                "who is the Extension Services?",
+                "who is RENE JUN B. BELGICA, DM-PA",
+                "who is RENE JUN",
+                "who is in charge of extension services",
+                "sino ang sa extension services",
+                "sino si rene jun",
+                "sino ang in charge ka extension services",
+                "what is the name of the University Director of extension services?",
+                "what is the name of the extension services"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "University Director, Extension Services is RENE JUN B. BELGICA, DM-PA"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU","Who is the University Director of OGAD"]
+        },
+        {
+            "tag": "University Director, Knowledge Management, Innovation, and Technology Transfer?",
+            "patterns": [
+                "WWho is the University Director, Knowledge Management, Innovation, and Technology Transfer?",
+                "who is the Knowledge Management, Innovation, and Technology Transfer?",
+                "who is in charge KMITT",
+                "who is CARLO A. INTILLA,DIT",
+                "who is Carlo",
+                "who is in charge of Knowledge Management, Innovation, and Technology Transfer?",
+                "sino ang sa Knowledge Management, Innovation, and Technology Transfer?",
+                "sino ang sa KMITT",
+                "sino si CARLO",
+                "sino ang in charge ka KMITT",
+                "what is the name of the Knowledge Management, Innovation, and Technology Transfer?",
+                "what is the name of the KMITT",
+                "what is the name of the University Director of Knowledge Management, Innovation, and Technology Transfer?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "University Director, Knowledge Management, Innovation, and Technology Transfer is CARLO A. INTILLA,DIT"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU","Who is the University Director of OGAD"]
+        },
+        {
+            "tag": "University Director, Ethics and Evaluation?",
+            "patterns": [
+                "WWho is the University Director, Ethics and Evaluation?",
+                "who is the Ethics and Evaluation?",
+                "who is in charge Ethics and Evaluation",
+                "who is GIL C. VILLEGAS,MPA",
+                "who is gil",
+                "who is in charge of Ethics and Evaluation?",
+                "sino ang sa Ethics and Evaluation?",
+                "sino ngalan sa Ethics and Evaluation?",
+                "sino si gil",
+                "sino ang in charge ka Ethics and Evaluation?",
+                "what is the name of the Ethics and Evaluation??",
+                "what is the name of the University Director of Ethics and Evaluation?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "University Director, Ethics and Evaluation is GIL C. VILLEGAS,MPA"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "University Director, External Grants and Linkages",
+            "patterns": [
+                "WWho is the University Director, External Grants and Linkages",
+                "who is the External Grants and Linkages?",
+                "who is in charge External Grants and Linkages",
+                "who is ANNELYN A. TUNG, Dr.Dev.",
+                "who is annelyn",
+                "who is in External Grants and Linkages",
+                "sino ang sa External Grants and Linkages",
+                "sino ngalan sa External Grants and Linkages",
+                "sino si annelyn",
+                "sino ang in charge ka External Grants and Linkages",
+                "what is the name of the External Grants and Linkages",
+                "what is the name of the University Director of External Grants and Linkages"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "University Director, External Grants and Linkages is ANNELYN A. TUNG, Dr.Dev."
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "University Director, Data Analysis and Processing Center",
+            "patterns": [
+                "WWho is the University Director, Data Analysis and Processing Center?",
+                "who is the Data Analysis and Processing Center?",
+                "who is in charge Data Analysis and Processing Center?",
+                "who is JUNE REY S. SULATRA, Ph.D",
+                "who is June Rey",
+                "who is in Data Analysis and Processing Center?",
+                "sino ang sa Data Analysis and Processing Center?",
+                "sino ngalan sa Data Analysis and Processing Center?",
+                "sino si June Rey",
+                "sino ang in charge ka Data Analysis and Processing Center?",
+                "what is the name of the Data Analysis and Processing Center?",
+                "what is the name of the University Director of Data Analysis and Processing Center?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "University Director, Data Analysis and Processing Center is JUNE REY S. SULATRA, Ph.D"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "University Director, Research and Extension Centers?",
+            "patterns": [
+                "Who is the University Director, Research and Extension Centers?",
+                "who is the Research and Extension Centers?",
+                "who is in charge Research and Extension Centers?",
+                "who is JAN CARLO T. ARROYO, DIT",
+                "who is JAN CARLO",
+                "who is in Research and Extension Centers?",
+                "sino ang sa Research and Extension Centers?",
+                "sino ngalan sa Research and Extension Centers?",
+                "sino si JAN CARLO",
+                "sino ang in charge ka Research and Extension Centers?",
+                "what is the name of the Research and Extension Centers?",
+                "what is the name of the University Director of Research and Extension Centers?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "University Director, Research and Extension Centers is JAN CARLO T. ARROYO, DIT"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "Manager, Quinto Technology Business Incubation?",
+            "patterns": [
+                "Who is the Manager, Quinto Technology Business Incubation?",
+                "who is the Quinto Technology Business Incubation?",
+                "who is in charge Quinto Technology Business Incubation?",
+                "who is MADELYN R. GUMARAC, DM-HRM",
+                "who is Madelyn",
+                "who is in Quinto Technology Business Incubation?",
+                "sino ang sa Quinto Technology Business Incubation?",
+                "sino ngalan sa Quinto Technology Business Incubation?",
+                "sino si Madelyn",
+                "sino ang in charge ka Quinto Technology Business Incubation?",
+                "what is the name of the Quinto Technology Business Incubation?",
+                "what is the name of the manager of Quinto Technology Business Incubation?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "Manager, Quinto Technology Business Incubation? is MADELYN R. GUMARAC, DM-HRM"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        },
+        {
+            "tag": "creator",
+            "patterns": [
+              "what is the name of your developers",
+              "what is the name of your creators",
+              "what is the name of the developers",
+              "what is the name of the creators",
+              "who created you",
+              "your developers",
+              "your creators",
+              "who are your developers",
+              "developers",
+              "you are made by",
+              "you are made by whom",
+              "who created you",
+              "who create you",
+              "creators",
+              "who made you",
+              "who designed you"
+            ],
+            "responses": [
+              "College students"
+            ],
+            "context_set": ""
+          },
+        {
+            "tag": "Office Staff",
+            "patterns": [
+                "Who is the Office Staff of OGAD",
+                "who is the Office Staff of OGAD in nisu",
+                "who is JESSEL MAE L. VELASCO",
+                "who is in charge of Office staff OGAD",
+                "sino ang mga office staff ka OGAD",
+                "sino ang ngalan ka office staff ka OGAD",
+                "sino ang in charge ka office staff ka OGAD",
+                "what is the name of the office staff ka OGAD?"
+            ],
+            "secondary_responses": [
+            ],
+            "responses": [
+                "The Office staff is JESSEL MAE L. VELASCO"
+            ],
+            "context": "",
+            "suggestions": ["Who is the vice president of NISU"]
+        }
+    ]
+}

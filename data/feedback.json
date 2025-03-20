@@ -1,0 +1,22 @@
+[
+    {
+        "rating": "5",
+        "comments": "good job!"
+    },
+    {
+        "rating": "5",
+        "comments": "goodjob"
+    },
+    {
+        "rating": "1",
+        "comments": "bad bad bad"
+    },
+    {
+        "rating": "2",
+        "comments": "need more information"
+    },
+    {
+        "rating": "1",
+        "comments": "bad"
+    }
+]

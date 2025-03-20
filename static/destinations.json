@@ -1,0 +1,77 @@
+{
+  "destinations": [
+    { 
+    "name": "Main Campus",
+    "othername":["nisu main", "main"],
+    "destinationlat": 11.458703622929997,
+    "destinationlon": 123.15533961258637
+  },
+  { 
+    "name": "Admin Building",
+    "othername":["admin"],
+    "destinationlat": 11.458812,
+    "destinationlon": 123.155796
+  },
+  
+  { 
+    "name": "West Campus",
+    "othername":["west campus", "west"],
+    "destinationlat": 11.45388943981234, 
+    "destinationlon": 123.14799422698653
+  },
+  { 
+    "name": "Cashier",
+    "othername":["cashier office", "office of cashier"],
+    "destinationlat": 11.458866,
+    "destinationlon": 123.155368
+  },
+  { 
+    "name": "Registrar",
+    "othername":["registrar's office", "registrar office"],
+    "destinationlat": 11.4591053,
+    "destinationlon": 123.155700
+  },
+  { 
+    "name": "College of Industrial Technology",
+    "othername":["CIT", "CIT BUILDING"],
+    "destinationlat": 11.458903,
+    "destinationlon": 123.156637
+  },
+  { 
+    "name": "NISU Laboratory Junior Department",
+    "othername":["Highschool Department", "Highschool"],
+    "destinationlat": 11.454289,
+    "destinationlon": 123.147315
+  },
+  { 
+    "name": "OSAS",
+    "othername":["osas, Osas"],
+    "destinationlat": 11.458765,    
+    "destinationlon": 123.155986
+  },
+  { 
+    "name": "CICS Department",
+    "othername":["College of Information and computing studies department, CICS building, CICS, cics building"],
+    "destinationlat": 11.454042956945338,   
+    "destinationlon": 123.14690358568133
+  },
+  { 
+    "name": "College of Tourism",
+    "othername":["tourism"],
+    "destinationlat": 11.454042956945338,   
+    "destinationlon": 123.14690358568133
+  },
+  { 
+    "name": "Canteen",
+    "othername":["cafeteria"],
+    "destinationlat": 11.458220,   
+    "destinationlon": 123.155586
+  },
+  { 
+    "name": "College of Engineering",
+    "othername":["COENG, engineering building"],
+    "destinationlat": 11.453633, 
+    "destinationlon": 123.147782
+  }
+  ]
+}
