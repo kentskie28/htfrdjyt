@@ -1,0 +1,422 @@
+app.js
+class Chatbox {
+    constructor() {
+        this.args = {
+            openButton: document.querySelector('.chatbox__button'),
+            chatBox: document.querySelector('.chatbox__support'),
+            sendButton: document.querySelector('.send__button')
+        };
+
+        this.state = false;
+        this.messages = [];
+    }
+
+    display() {
+        const { openButton, chatBox, sendButton } = this.args;
+        const exitButton = chatBox.querySelector('.chatbox__exit');
+    
+        openButton.addEventListener('click', () => {
+            this.toggleState(chatBox);
+            openButton.style.display = 'none';  // Hide the openButton when clicked
+        });
+    
+        exitButton.addEventListener('click', () => {
+            this.toggleState(chatBox);
+            openButton.style.display = 'block';  // Show the openButton when chatbox is closed
+        });
+    
+        sendButton.addEventListener('click', () => this.onSendButton(chatBox));
+    
+        const node = chatBox.querySelector('input');
+        node.addEventListener("keyup", ({ key }) => {
+            if (key === "Enter") {
+                this.onSendButton(chatBox);
+            }
+        });
+    }
+    
+
+    toggleState(chatbox) {
+        this.state = !this.state;
+        if (this.state) {
+            chatbox.classList.add('chatbox--active');
+        } else {
+            chatbox.classList.remove('chatbox--active');
+        }
+    }
+
+    onSendButton(chatbox) {
+    var textField = chatbox.querySelector('input');
+    let text1 = textField.value;
+    let language = document.getElementById("language-select").value;  // Get selected language
+
+    if (text1 === "") {
+        return;
+    }
+
+    let msg1 = { name: "User", message: text1 };
+    this.messages.push(msg1);
+
+    this.sendMessageToBot(text1, language, chatbox);
+}
+
+sendMessageToBot(text, language, chatbox) {
+    fetch('http://127.0.0.1:5000/predict', {
+        method: 'POST',
+        body: JSON.stringify({ message: text, language: language }),  // Include language in the request
+        mode: 'cors',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(r => r.json())
+    .then(r => {
+        let botResponse = r.answer;
+        let destination = r.destination;
+
+        let msg2 = { name: "Nisu", message: botResponse };
+        this.messages.push(msg2);
+        this.updateChatText(chatbox);
+
+        if (botResponse.includes("Can I access your location")) {
+            this.requestGeolocation(chatbox, destination);
+        }
+
+        chatbox.querySelector('input').value = '';
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        this.updateChatText(chatbox);
+        chatbox.querySelector('input').value = '';
+    });
+}
+
+
+    requestGeolocation(chatbox, destination) {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition((position) => {
+                const { latitude, longitude } = position.coords;
+
+                // Create a unique map ID for each map instance
+                const mapId = `map-${Date.now()}`;
+                const mapMsg = `<div id="${mapId}" class="map-container"></div>`;
+                this.messages.push({ name: "Nisu", message: mapMsg, isMap: true });
+                this.updateChatText(chatbox);
+
+                // Show the map after it's inserted as part of the chat messages
+                this.showMap(latitude, longitude, destination, mapId);
+            }, () => {
+                alert('Geolocation permission denied.');
+            });
+        } else {
+            alert('Geolocation is not supported by your browser.');
+        }
+    }    
+
+    showMap(lat, lon, destination, mapId) {
+        const mapDiv = document.getElementById(mapId);
+        mapDiv.style.display = 'block'; // Make the map visible
+
+        const map = L.map(mapId).setView([lat, lon], 13); // Create a new map instance
+
+        // Set OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // User's current location
+        L.marker([lat, lon]).addTo(map)
+            .bindPopup('You are here!')
+            .openPopup();
+
+        // Load destination from destinations.json
+        fetch('/static/destinations.json')
+            .then(response => response.json())
+            .then(data => {
+                const destinationData = data.destinations.find(dest => dest.name === destination);
+                if (destinationData) {
+                    const destinationLat = destinationData.destinationlat;
+                    const destinationLon = destinationData.destinationlon;
+
+                    // Add marker for the destination
+                    L.marker([destinationLat, destinationLon]).addTo(map)
+                        .bindPopup(`Destination: ${destinationData.name}`)
+                        .openPopup();
+                } else {
+                    alert("Destination not found.");
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching destinations:", error);
+            });
+    }
+
+    updateChatText(chatbox) {
+        var html = '';
+        this.messages.slice().reverse().forEach(function (item, index) {
+            if (item.isMap) {
+                html += item.message; // Insert map HTML directly
+            } else if (item.name === "Nisu") {
+                html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>';
+            } else {
+                html += '<div class="messages__item messages__item--operator">' + item.message + '</div>';
+            }
+        });
+
+        const chatmessage = chatbox.querySelector('.chatbox__messages');
+        chatmessage.innerHTML = html;
+        chatmessage.scrollTop = chatmessage.scrollHeight;
+    }
+}
+
+const chatbox = new Chatbox();
+chatbox.display();
+
+app.py
+import json
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
+from chat import get_response
+
+
+app = Flask(__name__)
+CORS(app)
+
+with open('static/destinations.json', 'r') as f:
+    destinations_data = json.load(f)
+
+@app.get("/")
+def index_get():
+    return render_template("base.html")
+
+@app.post("/predict")
+def predict():
+    data = request.get_json()
+    text = data.get("message")
+    language = data.get("language", "english") 
+
+    response_data = get_response(text, language)
+    message = {
+        "answer": response_data["response"],
+        "destination": response_data["destination"]
+    }
+    return jsonify(message)
+
+@app.post("/get_destination")
+def get_destination():
+    data = request.get_json()
+    destination_name = data.get("destination").lower() 
+    matching_destinations = [
+        destination for destination in destinations_data['destinations']
+        if destination_name in destination['name'].lower()  
+    ]
+
+    if matching_destinations:
+        destination = matching_destinations[0]
+        return jsonify({
+            'lat': destination['destinationlat'],
+            'lon': destination['destinationlon'],
+            'name': destination['name']
+        })
+    
+    return jsonify({'lat': None, 'lon': None})
+
+if __name__ == "__main__":
+    app.run(debug=True)
+chat.py
+import random
+import json
+import torch
+from model import NeuralNet
+from nltk_util import bag_of_words, tokenize
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# Load model data
+FILE = "data.pth"
+data = torch.load(FILE)
+input_size = data["input_size"]
+hidden_size = data["hidden_size"]
+output_size = data["output_size"]
+all_words = data['all_words']
+tags = data['tags']
+model_state = data["model_state"]
+
+# Initialize model
+model = NeuralNet(input_size, hidden_size, output_size).to(device)
+model.load_state_dict(model_state)
+model.eval()
+
+bot_name = "Nisu"
+
+# Global context dictionary to store user-specific context
+context = {}
+
+def load_intents(language):
+    """ Load the correct intents file based on selected language """
+    if language == "tagalog":
+        file_path = 'intents_ph.json'
+    else:
+        file_path = 'intents.json'
+
+    with open(file_path, 'r') as json_data:
+        return json.load(json_data)
+
+def get_user_context(user_id):
+    """Get the current context of the user."""
+    return context.get(user_id, None)
+
+def set_user_context(user_id, new_context):
+    """Set or reset the user's context."""
+    context[user_id] = new_context
+
+def get_response(msg, user_id="default_user", language='english'):
+    intents = load_intents(language) 
+    sentence = tokenize(msg)
+    X = bag_of_words(sentence, all_words)
+    X = X.reshape(1, X.shape[0])
+    X = torch.from_numpy(X).to(device)
+
+    output = model(X)
+    _, predicted = torch.max(output, dim=1)
+    tag = tags[predicted.item()]
+    
+    probs = torch.softmax(output, dim=1)
+    prob = probs[0][predicted.item()]
+
+    if prob.item() > 0.75:
+        current_context = get_user_context(user_id)
+        for intent in intents['intents']:
+            if tag == intent["tag"]:
+                # Handle location intent with context
+                if tag == "location":
+                    if current_context == "awaiting_location_confirmation":
+                        set_user_context(user_id, None)  # Reset context after confirmation
+                        return {"response": f"Showing map for {msg}", "destination": msg}
+                    else:
+                        possible_destinations = ["NISU Main", "NISU West", "Registrar", "Cashier", "OSAS", "CICS Department", "COENG Department"]
+                        for destination in possible_destinations:
+                            if destination.lower() in msg.lower():
+                                set_user_context(user_id, "awaiting_location_confirmation")
+                                return {"response": f"Can I access your location to show you the map for {destination}?", "destination": destination}
+                        return {"response": "Could not find your destination", "destination": None}
+                
+                # Other intents, reset context if needed
+                set_user_context(user_id, None)
+                return {"response": random.choice(intent['responses']), "destination": None}
+    
+    return {"response": "I don't understand.", "destination": None}
+train.py
+import json
+import torch
+import torch.nn as nn
+import numpy as np
+from nltk_util import tokenize, stem, bag_of_words
+from model import NeuralNet
+from torch.utils.data import Dataset, DataLoader
+
+# Load the intents file
+with open('intents.json', 'r') as f:
+    intents = json.load(f)
+
+all_words = []
+tags = []
+xy = []
+
+# Loop through intents patterns to extract words
+for intent in intents['intents']:
+    tag = intent['tag']
+    tags.append(tag)
+    for pattern in intent['patterns']:
+        w = tokenize(pattern)
+        all_words.extend(w)
+        xy.append((w, tag))
+
+# Stem and lower words, remove duplicates
+ignore_words = ['?', '!', '.', ',']
+all_words = [stem(w) for w in all_words if w not in ignore_words]
+all_words = sorted(set(all_words))
+tags = sorted(set(tags))
+
+# Training data
+X_train = []
+y_train = []
+
+for (pattern_sentence, tag) in xy:
+    bag = bag_of_words(pattern_sentence, all_words)
+    X_train.append(bag)
+
+    label = tags.index(tag)
+    y_train.append(label)
+
+X_train = np.array(X_train)
+y_train = np.array(y_train)
+
+# Hyperparameters
+input_size = len(X_train[0])
+hidden_size = 8
+output_size = len(tags)
+learning_rate = 0.001
+num_epochs = 1000
+batch_size = 8
+
+class ChatDataset(Dataset):
+    def __init__(self):
+        self.n_samples = len(X_train)
+        self.x_data = X_train
+        self.y_data = y_train
+
+    def __getitem__(self, index):
+        return self.x_data[index], self.y_data[index]
+
+    def __len__(self):
+        return self.n_samples
+
+# DataLoader
+dataset = ChatDataset()
+train_loader = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True)
+
+# Model
+model = NeuralNet(input_size, hidden_size, output_size)
+
+# Loss and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+
+print(len(xy), "patterns")
+print(len(tags), "tags:", tags)
+print(len(all_words), "unique stemmed words:", all_words)
+
+# Training loop
+for epoch in range(num_epochs):
+    for (words, labels) in train_loader:
+        words = torch.tensor(words, dtype=torch.float32)
+        labels = torch.tensor(labels, dtype=torch.long)
+
+        outputs = model(words)
+        loss = criterion(outputs, labels)
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+    if (epoch + 1) % 100 == 0:
+        print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {loss.item():.4f}')
+
+# Save the model
+model_data = {
+    "model_state": model.state_dict(),
+    "input_size": input_size,
+    "hidden_size": hidden_size,
+    "output_size": output_size,
+    "all_words": all_words,
+    "tags": tags
+}
+
+
+
+FILE = "data.pth"
+torch.save(model_data, FILE)
+
+print('Training complete. Model saved to data.pth')
+

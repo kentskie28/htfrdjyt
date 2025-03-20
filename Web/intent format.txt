@@ -1,0 +1,19 @@
+    /*{
+      "name": "",
+      "tag": "",
+      "patterns": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "responses": [
+        ""
+      ],
+      "secondary_responses":[
+        "How, can I assist you today?",
+        "Hi there, what can I help you with?"
+      ],
+      "context_set": "",
+      "context_required": ""
+    },*/

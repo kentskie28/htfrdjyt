@@ -1,0 +1,279 @@
+this is my system what algorithm does it use? can you site the real algorithm that is used here?
+chat.py
+import random
+import json
+import torch
+from model import NeuralNet
+from nltk_util import bag_of_words, tokenize
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+FILE = "data.pth"
+data = torch.load(FILE)
+input_size = data["input_size"]
+hidden_size = data["hidden_size"]
+output_size = data["output_size"]
+all_words = data['all_words']
+tags = data['tags']
+model_state = data["model_state"]
+
+model = NeuralNet(input_size, hidden_size, output_size).to(device)
+model.load_state_dict(model_state)
+model.eval()
+
+bot_name = "Nisu"
+context = {}
+
+DESTINATIONS_FILE = 'static/destinations.json'
+
+def load_destinations():
+    try:
+        with open(DESTINATIONS_FILE, 'r') as f:
+            destinations_data = json.load(f)
+            return [d['name'].lower() for d in destinations_data['destinations']]
+    except FileNotFoundError:
+        print(f"Error: {DESTINATIONS_FILE} not found.")
+        return []
+
+def load_intents(language):
+    if language == "tagalog":
+        file_path = 'data/intentsph.json'
+    else:
+        file_path = 'data/intents.json'
+
+    with open(file_path, 'r') as json_data:
+        return json.load(json_data)
+
+def get_user_context(user_id):
+    return context.get(user_id, None)
+
+def set_user_context(user_id, new_context):
+    context[user_id] = new_context
+
+def get_response(msg, user_id="default_user", language='english'):
+    intents = load_intents(language)
+    possible_destinations = load_destinations()  
+    sentence = tokenize(msg)
+    X = bag_of_words(sentence, all_words)
+    X = X.reshape(1, X.shape[0])
+    X = torch.from_numpy(X).to(device)
+
+    output = model(X)
+    _, predicted = torch.max(output, dim=1)
+    tag = tags[predicted.item()]
+    
+    probs = torch.softmax(output, dim=1)
+    prob = probs[0][predicted.item()]
+
+    print(f"Predicted probability for the tag '{tag}': {prob.item()}")
+
+    confidence_threshold = 0.75
+
+    if prob.item() > confidence_threshold:
+        current_context = get_user_context(user_id)
+        for intent in intents['intents']:
+            if tag == intent["tag"]:
+                suggestions = intent.get("suggestions", [])
+                if tag == "location":
+                    if current_context == "awaiting_location_confirmation":
+                        set_user_context(user_id, None)
+                        return {"response": f"Showing map for {msg}", "destination": msg, "secondary_response": None, "suggestions": []}
+                    else:
+                        normalized_destination = msg.lower().strip()
+                        normalized_destinations = [dest.lower().strip() for dest in possible_destinations]
+                        for destination in normalized_destinations:
+                            if destination in normalized_destination:
+                                return {"response": f"Can I access your location to show you the map for {destination}?", "destination": destination, "secondary_response": None, "suggestions": []}
+                        return {"response": "Could not find your destination", "destination": None, "secondary_response": None, "suggestions": []}
+                
+                set_user_context(user_id, None)
+                primary_response = random.choice(intent['responses'])
+                secondary_response = random.choice(intent.get('secondary_responses', []))
+                return {"response": primary_response, "destination": None, "secondary_response": secondary_response, "suggestions": suggestions}
+
+    return {"response": "I don't understand.", "destination": None, "secondary_response": None, "suggestions": []}
+
+if __name__ == "__main__":
+    print("Let's chat! (type 'quit' to exit)")
+    while True:
+        sentence = input("You: ")
+        if sentence == "quit":
+            break
+
+        resp = get_response(sentence)
+        print(resp)model.py
+import torch
+import torch.nn as nn
+
+
+class NeuralNet(nn.Module):
+    def __init__(self, input_size, hidden_size, num_classes):
+        super(NeuralNet, self).__init__()
+        self.l1 = nn.Linear(input_size, hidden_size) 
+        self.l2 = nn.Linear(hidden_size, hidden_size) 
+        self.l3 = nn.Linear(hidden_size, num_classes)
+        self.relu = nn.ReLU()
+    
+    def forward(self, x):
+        out = self.l1(x)
+        out = self.relu(out)
+        out = self.l2(out)
+        out = self.relu(out)
+        out = self.l3(out)
+        # no activation and no softmax at the end
+        return out
+nltk.util
+import numpy as np
+import nltk
+from nltk.stem.porter import PorterStemmer
+from nltk.corpus import stopwords
+stemmer = PorterStemmer()
+
+
+def tokenize_and_clean(sentence):
+    words = tokenize(sentence)
+    stop_words = set(stopwords.words('english'))
+    return [stem(w) for w in words if w not in stop_words]
+def tokenize(sentence):
+    """
+    split sentence into array of words/tokens
+    a token can be a word or punctuation character, or number
+    """
+    return nltk.word_tokenize(sentence)
+
+
+def stem(word):
+    """
+    stemming = find the root form of the word
+    examples:
+    words = ["organize", "organizes", "organizing"]
+    words = [stem(w) for w in words]
+    -> ["organ", "organ", "organ"]
+    """
+    return stemmer.stem(word.lower())
+
+
+def bag_of_words(tokenized_sentence, words):
+    """
+    return bag of words array:
+    1 for each known word that exists in the sentence, 0 otherwise
+    example:
+    sentence = ["hello", "how", "are", "you"]
+    words = ["hi", "hello", "I", "you", "bye", "thank", "cool"]
+    bog   = [  0 ,    1 ,    0 ,   1 ,    0 ,    0 ,      0]
+    """
+    # stem each word
+    sentence_words = [stem(word) for word in tokenized_sentence]
+    bag = np.zeros(len(words), dtype=np.float32)
+    for idx, w in enumerate(words):
+        if w in sentence_words: 
+            bag[idx] = 1
+
+    return bag
+train.py
+import json
+import torch
+import torch.nn as nn
+import numpy as np
+from nltk_util import tokenize, stem, bag_of_words
+from model import NeuralNet
+from torch.utils.data import Dataset, DataLoader
+
+with open('data/intents.json', 'r') as f:
+    intents = json.load(f)
+
+all_words = []
+tags = []
+xy = []
+
+for intent in intents['intents']:
+    tag = intent['tag']
+    tags.append(tag)
+    for pattern in intent['patterns']:
+        w = tokenize(pattern)
+        all_words.extend(w)
+        xy.append((w, tag))
+
+# Stem and lower words, remove duplicates
+ignore_words = ['?', '!', '.', ',']
+all_words = [stem(w) for w in all_words if w not in ignore_words]
+all_words = sorted(set(all_words))
+tags = sorted(set(tags))
+
+
+X_train = []
+y_train = []
+
+for (pattern_sentence, tag) in xy:
+    bag = bag_of_words(pattern_sentence, all_words)
+    X_train.append(bag)
+
+    label = tags.index(tag)
+    y_train.append(label)
+
+X_train = np.array(X_train)
+y_train = np.array(y_train)
+
+input_size = len(X_train[0])
+hidden_size = 8
+output_size = len(tags)
+learning_rate = 0.001
+num_epochs = 1000
+batch_size = 8
+
+class ChatDataset(Dataset):
+    def __init__(self):
+        self.n_samples = len(X_train)
+        self.x_data = X_train
+        self.y_data = y_train
+
+    def __getitem__(self, index):
+        return self.x_data[index], self.y_data[index]
+
+    def __len__(self):
+        return self.n_samples
+
+dataset = ChatDataset()
+train_loader = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True)
+
+model = NeuralNet(input_size, hidden_size, output_size)
+
+criterion = nn.CrossEntropyLoss()
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+
+print(len(xy), "patterns")
+print(len(tags), "tags:", tags)
+print(len(all_words), "unique stemmed words:", all_words)
+
+for epoch in range(num_epochs):
+    for (words, labels) in train_loader:
+        words = torch.tensor(words, dtype=torch.float32)
+        labels = torch.tensor(labels, dtype=torch.long)
+
+        outputs = model(words)
+        loss = criterion(outputs, labels)
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+    if (epoch + 1) % 100 == 0:
+        print(f'Epoch [{epoch + 1}/{num_epochs}], Loss: {loss.item():.4f}')
+
+# Save the model
+model_data = {
+    "model_state": model.state_dict(),
+    "input_size": input_size,
+    "hidden_size": hidden_size,
+    "output_size": output_size,
+    "all_words": all_words,
+    "tags": tags
+}
+
+
+
+FILE = "data.pth"
+torch.save(model_data, FILE)
+
+print('Training complete. Model saved to data.pth')
+
