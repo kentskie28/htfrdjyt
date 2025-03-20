@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/logs.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Logs</title>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="banner">
+        <nav class="nav">
+            <h1>Chat Logs</h1>
+            <ul>
+                <li><a href="{{ url_for('index_get') }}">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1></h1>
+    
+        <div class="action-buttons">
+            <button onclick="editSelectedLogs()" class="btn-edit-multiple">✏️ Edit Selected</button>
+            <button onclick="deleteSelectedLogs()" class="btn-delete-multiple">🗑️ Delete Selected</button>        
+        </div>
+    
+        <div class="log-container">
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAll" onclick="toggleAllCheckboxes()"></th>
+                        <th>Timestamp</th>
+                        <th>User Input</th>
+                        <th>Bot Response</th>
+                        <th>Intent Tag</th>
+                    </tr>
+                </thead>
+                <tbody id="logTable"></tbody>
+            </table>
+        </div>
+    </div>
+     <div class="pagination">
+        <button id="prevPage" onclick="prevPage()">Previous</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextPage" onclick="nextPage()">Next</button>
+    </div>
+    
+
+    <!-- Edit Log Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Edit Log Entry</h3>
+            
+            <form id="editForm">
+                <label for="editIntentTag">Intent Tag:</label>
+                <select id="editIntentTag" class="input-field">
+                    <option value="new_tag">Create a New Tag</option>
+                </select>
+                <input type="text" id="newTagInput" placeholder="Enter new tag..." class="input-field" style="display: none;">
+
+                <label for="editUserInput">User Input:</label>
+                <textarea id="editUserInput" class="input-field" oninput="autoExpand(this)" required></textarea>
+
+                <label for="editBotResponse">Bot Response:</label>
+                <textarea id="editBotResponse" class="input-field" oninput="autoExpand(this)" required></textarea>
+
+                <label for="editSecondResponse">Second Response:</label>
+                <textarea id="editSecondResponse" class="input-field" oninput="autoExpand(this)"></textarea>
+
+                <label for="editSuggestion">Suggestion:</label>
+                <textarea id="editSuggestion" class="input-field" oninput="autoExpand(this)"></textarea>
+
+                <div class="button-group">
+                    <button type="button" onclick="saveEditedLog()" class="btn-save">Save</button>
+                    <button type="button" onclick="closeModal()" class="btn-cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    let currentPage = 1;
+const logsPerPage = 10;
+let logsData = []; // Store logs globally
+
+function editSelectedLogs() {
+    let selectedCheckboxes = document.querySelectorAll(".logCheckbox:checked");
+    
+    if (selectedCheckboxes.length !== 1) {
+        alert("Please select only one log entry to edit.");
+        return;
+    }
+
+    let index = selectedCheckboxes[0].dataset.index;
+    let log = logsData[index];
+
+    openEditModal(index, log.user_input, log.bot_response, log.intent_tag);
+}
+
+function fetchLogs() {
+    fetch("/logs")
+        .then(response => response.json())
+        .then(data => {
+            logsData = data;
+            displayLogs();
+        })
+        .catch(error => console.error("Error fetching logs:", error));
+}
+
+function displayLogs() {
+    const table = document.getElementById("logTable");
+    table.innerHTML = "";
+
+    const start = (currentPage - 1) * logsPerPage;
+    const end = start + logsPerPage;
+    const paginatedLogs = logsData.slice(start, end);
+
+    paginatedLogs.forEach((log, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td><input type="checkbox" class="logCheckbox" data-index="${start + index}"></td>
+            <td>${new Date(log.timestamp).toLocaleString()}</td>
+            <td>${log.user_input}</td>
+            <td>${log.bot_response}</td>
+            <td>${log.intent_tag || "?"}</td>
+        `;
+        table.appendChild(row);
+    });
+
+    updatePaginationControls();
+}
+
+function updatePaginationControls() {
+    const totalPages = Math.ceil(logsData.length / logsPerPage);
+    document.getElementById("pageInfo").textContent = `Page ${currentPage} of ${totalPages}`;
+    document.getElementById("prevPage").disabled = currentPage === 1;
+    document.getElementById("nextPage").disabled = currentPage === totalPages;
+}
+
+function nextPage() {
+    if (currentPage * logsPerPage < logsData.length) {
+        currentPage++;
+        displayLogs();
+    }
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        displayLogs();
+    }
+}
+    function autoExpand(textarea) {
+        textarea.style.height = "auto"; 
+        textarea.style.height = textarea.scrollHeight + "px"; 
+    }
+
+    function openEditModal(index, userInput, botResponse, intentTag) {
+        document.getElementById("editUserInput").value = userInput;
+        document.getElementById("editBotResponse").value = botResponse;
+        document.getElementById("editIntentTag").value = intentTag;
+        document.getElementById("editModal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("editModal").style.display = "none";
+    }
+
+    function deleteLog(index) {
+        if (!confirm("Are you sure you want to delete this log?")) return;
+
+        fetch("/delete_logs", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ index })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            fetchLogs();
+        })
+        .catch(error => console.error("Error deleting log:", error));
+    }
+
+    function deleteSelectedLogs() {
+    let selectedIndexes = [];
+    document.querySelectorAll(".logCheckbox:checked").forEach((checkbox) => {
+        selectedIndexes.push(parseInt(checkbox.dataset.index));
+    });
+
+    if (selectedIndexes.length === 0) {
+        alert("No logs selected for deletion!");
+        return;
+    }
+
+    if (!confirm("Are you sure you want to delete the selected logs?")) return;
+
+    fetch("/delete_logs", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ indexes: selectedIndexes })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        fetchLogs();
+        document.getElementById("selectAll").checked = false; // Reset Select All checkbox
+    })
+    .catch(error => console.error("Error deleting logs:", error));
+}
+
+    function toggleAllCheckboxes() {
+        let selectAll = document.getElementById("selectAll");
+        let checkboxes = document.querySelectorAll(".logCheckbox");
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = selectAll.checked;
+        });
+    }
+
+    fetchLogs();
+    </script> 
+
+</body>
+</html>
